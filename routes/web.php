@@ -6,6 +6,8 @@ use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\BannerController;
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CardController;
+use App\Http\Controllers\CardTypeController;
 use App\Http\Controllers\CounterController;
 use App\Http\Controllers\PlanCOntroller;
 use App\Http\Controllers\ServiceController;
@@ -26,15 +28,20 @@ use App\Http\Controllers\HomeController;
 |
 */
 Route::get('/',[HomeController::class,'index'])->name('home');
-Route::get('/about',[HomeController::class,'about'])->name('about');
-Route::get('/services',[HomeController::class,'services'])->name('services');
-Route::get('/contact',[HomeController::class,'contact'])->name('contact');
-Route::get('/team',[HomeController::class,'team'])->name('team');
-Route::get('/testimonial',[HomeController::class,'testimonial'])->name('testimonial');
-Route::get('/price',[HomeController::class,'price'])->name('price');
-Route::get('/appointment',[HomeController::class,'appointment'])->name('appointment');
-Route::get('/blog',[HomeController::class,'blog'])->name('blog');
-Route::get('/blog/{blog}',[HomeController::class,'blogDetails'])->name('blog-details');
+//Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/card_1', [HomeController::class, 'card_1'])->name('card_1');
+Route::get('/card_2', [HomeController::class, 'card_2'])->name('card_2');
+Route::get('/card_3', [HomeController::class, 'card_3'])->name('card_3');
+//Route::get('/',[HomeController::class,'index'])->name('home');
+//Route::get('/about',[HomeController::class,'about'])->name('about');
+//Route::get('/services',[HomeController::class,'services'])->name('services');
+//Route::get('/contact',[HomeController::class,'contact'])->name('contact');
+//Route::get('/team',[HomeController::class,'team'])->name('team');
+//Route::get('/testimonial',[HomeController::class,'testimonial'])->name('testimonial');
+//Route::get('/price',[HomeController::class,'price'])->name('price');
+//Route::get('/appointment',[HomeController::class,'appointment'])->name('appointment');
+//Route::get('/blog',[HomeController::class,'blog'])->name('blog');
+//Route::get('/blog/{blog}',[HomeController::class,'blogDetails'])->name('blog-details');
 
 Route::get('login-form',[AuthController::class,'index'])->name('login-form');
 Route::get('registration',[AuthController::class,'registration'])->name('registration');
@@ -158,6 +165,27 @@ Route::group(['middleware' => ['auth']],function (){
     Route::get('counter/delete/{counter}',[CounterController::class,'delete'])->name('counter.delete');
     Route::get('counter/duplicate/{counter}',[CounterController::class,'duplicate'])->name('counter.duplicate');
 
+
+
+    //card
+
+    Route::get('card/index',[CardController::class,'index'])->name('card.index');
+    Route::get('card/create',[CardController::class,'create'])->name('card.create');
+    Route::post('card/store',[CardController::class,'store'])->name('card.store');
+    Route::get('card/edit/{card}',[CardController::class,'edit'])->name('card.edit');
+    Route::post('card/update/{card}',[CardController::class,'update'])->name('card.update');
+    Route::get('card/delete/{card}',[CardController::class,'delete'])->name('card.delete');
+    Route::get('card/duplicate/{card}',[CardController::class,'duplicate'])->name('card.duplicate');
+
+    //cardType
+
+    Route::get('cardType/index',[CardTypeController::class,'index'])->name('cardType.index');
+    Route::get('cardType/create',[CardTypeController::class,'create'])->name('cardType.create');
+    Route::post('cardType/store',[CardTypeController::class,'store'])->name('cardType.store');
+    Route::get('cardType/edit/{cardType}',[CardTypeController::class,'edit'])->name('cardType.edit');
+    Route::post('cardType/update/{cardType}',[CardTypeController::class,'update'])->name('cardType.update');
+    Route::get('cardType/delete/{cardType}',[CardTypeController::class,'delete'])->name('cardType.delete');
+    Route::get('cardType/duplicate/{cardType}',[CardTypeController::class,'duplicate'])->name('cardType.duplicate');
 
 });
 

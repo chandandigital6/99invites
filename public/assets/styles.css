@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+@media (forced-colors: active) {
+  .your-class {
+    forced-color-adjust: none;
+    background: WindowText;
+    color: Window;
+  }
+}
+
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  /* You can adjust the font weight as needed */
+  font-style: normal;
+}
+
+.permanent-marker-regular {
+  font-family: "Permanent Marker", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Style for Navigation Menu Links */
+.nav-link {
+  position: relative;
+  color: inherit;
+  /* Inherits the text color */
+  text-decoration: none;
+  transition: color 0.3s ease;
+  /* Smooth transition for text color */
+}
+
+/* Style for Navigation Menu Links on Hover */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  /* Adjust this value as needed */
+  width: 0;
+  /* Start with zero width */
+  height: 2px;
+  /* Height of the underline */
+  background-color: rgb(245, 75, 75);
+  /* Red color for underline */
+  transition: width 0.3s ease;
+  /* Smooth transition for underline width */
+}
+
+/* Style for Navigation Menu Links on Hover */
+.nav-link:hover::after {
+  width: 100%;
+  /* Expand the underline to 100% on hover */
+}
+
+/* Adjust the color of the text and underline on hover */
+.nav-link:hover {
+  color: rgb(245, 75, 75);
+  /* Change the text color on hover */
+}
+
+
+
+.hover-fade-in {
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-fade-in::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.7);
+  z-index: 10;
+  transition: top 0.5s ease-in-out;
+}
+
+.hover-fade-in:hover::before {
+  top: 0;
+}
+
+
+
+.animate-wave {
+  animation: wave-animation 3.5s infinite;
+}
+
+@keyframes wave-animation {
+  0% {
+    transform: rotate(0.0deg);
+  }
+
+  10% {
+    transform: rotate(14.0deg);
+  }
+
+  20% {
+    transform: rotate(-8.0deg);
+  }
+
+  30% {
+    transform: rotate(14.0deg);
+  }
+
+  40% {
+    transform: rotate(-4.0deg);
+  }
+
+  50% {
+    transform: rotate(10.0deg);
+  }
+
+  60% {
+    transform: rotate(0.0deg);
+  }
+
+  100% {
+    transform: rotate(0.0deg);
+  }
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(200vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.animate-heart {
+  animation: fall linear infinite;
+  background-image: url('./assets/heart-solid.svg');
+  /* Set the heart icon */
+  background-size: contain;
+  /* Adjust the size of the heart icon */
+  background-repeat: no-repeat;
+  /* Ensure the heart icon is not repeated */
+}
+
+
+.line-through {
+  text-decoration: line-through;
+}
+
+
+
+
+/*Main Effect*/
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 4s ease;
+}
+
+@keyframes fadeInBottom {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-bottom {
+  animation: fadeInBottom 6s ease;
+}
+
+
+.testimonial-slide {
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.hidden-slide {
+  opacity: 0;
+}
+
+.wave-top {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+}
+.wave-top svg {
+  position: absolute;
+  top: 0;
+}

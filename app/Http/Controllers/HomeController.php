@@ -2,68 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\About;
+
 use App\Models\Banner;
-use App\Models\Blog;
-use App\Models\Counter;
-use App\Models\Plan;
-use App\Models\Service;
-use App\Models\Team;
-use App\Models\Testimonial;
+use App\Models\Card;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index(){
-        $banner=Banner::all();
-        $about=About::all();
-        $services=Service::all();
-        $plans=Plan::all();
-        $testimonials=Testimonial::all();
-        $teams=Team::all();
-        $counters=Counter::all();
-        return view('front.index',compact('banner','counters','about','services','plans','testimonials','teams'));
-      }
-      public function about(){
-          $teams=Team::all();
-          $about=About::all();
-          $counters=Counter::all();
-          return view('front.about',compact('about','teams' ,'counters'));
-      }
-      public function services(){
-          $services=Service::all();
-          $testimonials=Testimonial::all();
-          return view('front.service',compact('services','testimonials'));
-      }
-      public function contact(){
-          return view('front.contact');
-      }
-      public function price(){
-          $teams=Team::all();
-          $plans=Plan::all();
-          return view('front.price',compact('plans','teams'));
-      }
-      public function team(){
-          $teams=Team::all();
-          return view('front.team',compact('teams'));
-      }
-      public function testimonial(){
-          $testimonials=Testimonial::all();
-          return view('front.testimonial',compact('testimonials'));
-      }
-      public function appointment(){
-          return view('front.appointment');
-      }
+    public function index()
+    {
+        $banners=Banner::all();
+        $cards=Card::all();
+        return view('index',compact('banners','cards'));
+    }
 
-    public function blog(){
-        $blogs=Blog::all();
-        return view('front.blog',compact('blogs'));
+    public function card_1()
+    {
+        return view('card_1');
     }
-    public function blogDetails(Blog $blog){
-       $categories = Blog::all();
-        $recentPosts = Blog::orderBy('created_at', 'desc')->take(5)->get();
-//
-        // Pass the data to the view
-        return view('front.blogDetails', compact('blog', 'categories', 'recentPosts'));
+    public function card_2()
+    {
+        return view('card_2');
     }
+    public function card_3()
+    {
+        return view('card_3');
+
+    }
+
 }

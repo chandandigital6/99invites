@@ -44,10 +44,19 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                     <a href="{{route('about.index')}}" class="nav-link">
+                     <a href="{{route('card.index')}}" class="nav-link">
                         <i class="nav-icon 	fa fa-address-book"></i>
                         <p>
-                            About Us
+                            Cards
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{route('cardType.index')}}" class="nav-link">
+                        <i class="nav-icon 	fa fa-address-book"></i>
+                        <p>
+                            CardsType
                         </p>
                     </a>
                 </li>

@@ -58,9 +58,25 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $banner->title }}</td>
                                         <td>{{$banner->sub_title}}</td>
-                                        <td><img src="{{ asset('storage/'.$banner->image) }}" alt="{{ $banner->title }}" style="max-width: 100px;"></td>
-
+                                        <td>
+                                            <video width="320" height="240" controls>
+                                                <source src="{{ asset('storage/'.$banner->image) }}" type="video/mp4">
+                                                Your browser does not support the video tag.
+                                            </video>
+                                        </td>
 {{--                                        <td>--}}
+{{--                                            @if($banner->type == 'image')--}}
+{{--                                                <img src="{{ asset('storage/'.$banner->image) }}" alt="{{ $banner->title }}" style="max-width: 100px;">--}}
+{{--                                            @elseif($banner->type == 'video')--}}
+{{--                                                <video width="320" height="240" controls>--}}
+{{--                                                    <source src="{{ asset('storage/'.$banner->image) }}" type="video/mp4">--}}
+{{--                                                    Your browser does not support the video tag.--}}
+{{--                                                </video>--}}
+{{--                                            @endif--}}
+{{--                                        </td>--}}
+
+
+                                        {{--                                        <td>--}}
 {{--                                            @if($banner->status)--}}
 {{--                                                <svg class="text-success-500 h-6 w-6 text-success" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">--}}
 {{--                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>--}}
