@@ -100,7 +100,7 @@
                             </a>
                         @endif
 
-                        <p class="card-text text-gray-800"><strong>Card ID:</strong> {{ $cardType->card->card_title }}</p>
+                        <p class="card-text text-gray-800"><strong>CardCategory:</strong> {{ $cardType->card->card_title }}</p>
 
                         <a href="{{ route('cardType.show', ['cardType' => $cardType->id]) }}" class="mt-4 inline-block bg-purple-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-purple-700 transition-colors">View Details</a>
                     </div>
