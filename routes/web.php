@@ -181,13 +181,13 @@ Route::group(['middleware' => ['auth']],function (){
 
     //cardType
 
-    Route::get('cardType/index',[CardTypeController::class,'index'])->name('cardType.index');
-    Route::get('cardType/create',[CardTypeController::class,'create'])->name('cardType.create');
-    Route::post('cardType/store',[CardTypeController::class,'store'])->name('cardType.store');
-    Route::get('cardType/edit/{cardType}',[CardTypeController::class,'edit'])->name('cardType.edit');
-    Route::post('cardType/update/{cardType}',[CardTypeController::class,'update'])->name('cardType.update');
-    Route::get('cardType/delete/{cardType}',[CardTypeController::class,'delete'])->name('cardType.delete');
-    Route::get('cardType/duplicate/{cardType}',[CardTypeController::class,'duplicate'])->name('cardType.duplicate');
+    Route::get('cardtype/index',[CardTypeController::class,'index'])->name('cardType.index');
+    Route::get('cardtype/create',[CardTypeController::class,'create'])->name('cardType.create');
+    Route::post('cardtype/store',[CardTypeController::class,'store'])->name('cardType.store');
+    Route::get('cardtype/edit/{cardType}',[CardTypeController::class,'edit'])->name('cardType.edit');
+    Route::post('cardtype/update/{cardType}',[CardTypeController::class,'update'])->name('cardType.update');
+    Route::get('cardtype/delete/{cardType}',[CardTypeController::class,'delete'])->name('cardType.delete');
+    Route::get('cardtype/duplicate/{cardType}',[CardTypeController::class,'duplicate'])->name('cardType.duplicate');
 
 });
 
