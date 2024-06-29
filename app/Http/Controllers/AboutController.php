@@ -26,6 +26,7 @@ class AboutController extends Controller
 
     public function store(AboutRequest $request){
 //        dd($request);
+
         $about=About::create($request->all());
         $image = $request->file('image')->store('public/about');
 

@@ -11,14 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('card_types', function (Blueprint $table) {
+        Schema::create('birthday_cards', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
-            $table->text('msg')->nullable();
+            $table->string('name')->nullable();
             $table->string('image')->nullable();
-            $table->enum('page',['card_1','card_2','card_3'])->nullable();
-            $table->foreignId('card_id')->nullable()->constrained('cards')->onDelete('cascade');
-
+            $table->text('address')->nullable();
+            $table->text('datetime')->nullable();
+            $table->text('other')->nullable();
+            $table->string('other_image')->nullable();
+            $table->foreignId('cardType_id')->nullable()->constrained('card_types')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('card_types');
+        Schema::dropIfExists('birthday_cards');
     }
 };

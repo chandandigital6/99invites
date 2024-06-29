@@ -14,4 +14,9 @@ class CardType extends Model
     {
         return $this->belongsTo(Card::class);
     }
+
+    public function birthdayCards()
+    {
+        return $this->hasMany(BirthdayCard::class, 'cardType_id'); // Ensure this matches the column name in the birthday_cards table
+    }
 }

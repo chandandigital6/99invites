@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Banner;
+use App\Models\BirthdayCard;
 use App\Models\Card;
 use App\Models\CardType;
 use Illuminate\Http\Request;
@@ -36,18 +37,27 @@ class HomeController extends Controller
 //        return view('cardType', compact('cardTypes'));
     }
 
-    public function show(CardType $cardType)
+
+
+
+    public function show($cardType)
     {
-        if ($cardType->page == 'card_1') {
-            return view('card_1');
-        } elseif ($cardType->page == 'card_2') {
-            return view('card_2');
-        } elseif ($cardType->page == 'card_3') {
-            return view('card_3');
+        $card = CardType::findOrFail($cardType); // Use findOrFail to handle non-existent IDs
+        $birthDay = $card->birthdayCards; // Get the related BirthdayCard instances
+
+        if ($card->page == 'card_1') {
+            return view('card_4', compact('birthDay', 'card'));
+        } elseif ($card->page == 'card_2') {
+            return view('card_2', compact('birthDay', 'card'));
+        } elseif ($card->page == 'card_3') {
+            return view('card_3', compact('birthDay', 'card'));
         } else {
-            return "No pages";
+            return response("No pages", 404);
         }
     }
+
+
+
 
     public function card_1()
     {
@@ -60,6 +70,12 @@ class HomeController extends Controller
     public function card_3()
     {
         return view('card_3');
+
+    }
+
+    public function card_4()
+    {
+        return view('card_4');
 
     }
 

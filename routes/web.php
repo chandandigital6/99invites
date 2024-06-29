@@ -5,6 +5,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\BannerController;
 
+use App\Http\Controllers\BirthDayController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CardController;
 use App\Http\Controllers\CardTypeController;
@@ -34,6 +35,8 @@ Route::get('/cardType/{cardType}',[HomeController::class,'show'])->name('cardTyp
 Route::get('/card_1', [HomeController::class, 'card_1'])->name('card_1');
 Route::get('/card_2', [HomeController::class, 'card_2'])->name('card_2');
 Route::get('/card_3', [HomeController::class, 'card_3'])->name('card_3');
+Route::get('/card_4', [HomeController::class, 'card_4'])->name('card_4');
+Route::get('/card-types/{cardType}/qr', [BirthDayController::class, 'showQr'])->name('cardType.showQr');
 //Route::get('/',[HomeController::class,'index'])->name('home');
 //Route::get('/about',[HomeController::class,'about'])->name('about');
 //Route::get('/services',[HomeController::class,'services'])->name('services');
@@ -189,6 +192,16 @@ Route::group(['middleware' => ['auth']],function (){
     Route::get('cardtype/delete/{cardType}',[CardTypeController::class,'delete'])->name('cardType.delete');
     Route::get('cardtype/duplicate/{cardType}',[CardTypeController::class,'duplicate'])->name('cardType.duplicate');
 
+
+    //CardBirthdays
+
+    Route::get('birthDayCard/index',[BirthDayController::class,'index'])->name('birthDayCard.index');
+    Route::get('birthDayCard/create',[BirthDayController::class,'create'])->name('birthDayCard.create');
+    Route::post('birthDayCard/store',[BirthDayController::class,'store'])->name('birthDayCard.store');
+    Route::get('birthDayCard/edit/{birthDayCard}',[BirthDayController::class,'edit'])->name('birthDayCard.edit');
+    Route::post('birthDayCard/update/{birthDayCard}',[BirthDayController::class,'update'])->name('birthDayCard.update');
+    Route::get('birthDayCard/delete/{birthDayCard}',[BirthDayController::class,'delete'])->name('birthDayCard.delete');
+    Route::get('birthDayCard/duplicate/{birthDayCard}',[BirthDayController::class,'duplicate'])->name('birthDayCard.duplicate');
 });
 
 
