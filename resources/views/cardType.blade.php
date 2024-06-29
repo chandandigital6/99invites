@@ -78,29 +78,31 @@
 
 <!--Header End-->
 
-<main class="fade-in p-6 bg-gray-100 mt-14">
+<main class="fade-in p-6 bg-gradient-to-br from-purple-500 via-pink-500 to-red-500 min-h-screen mt-14">
 
-    <div class="main-content max-w-6xl mx-auto">
+    <div class="main-content max-w-6xl mx-auto bg-white bg-opacity-90 p-10 rounded-3xl shadow-2xl">
 
-        <h1 class="text-3xl font-bold mb-6 text-center">Multiple Card Types</h1>
+        <h1 class="text-4xl font-extrabold mb-10 text-center text-pink-500">Multiple Card Types</h1>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
             @foreach ($cardTypes as $cardType)
-                <div class="card bg-white shadow-lg rounded-lg overflow-hidden flex flex-col items-center">
-                    <div class="card-body p-6 text-center">
-                        <a href="{{ route('cardType.show', ['cardType' => $cardType->id]) }}" class="block">
-                            <h5 class="card-title text-2xl font-semibold mb-4 text-blue-600 hover:underline">{{ $cardType->title }}</h5>
+                <div class="card bg-gradient-to-r from-white via-gray-100 to-gray-200 border border-gray-300 shadow-lg rounded-3xl overflow-hidden transition-transform transform hover:scale-105 hover:shadow-2xl">
+                    <div class="card-body p-6 text-center flex flex-col items-center">
+                        <a href="{{ route('cardType.show', ['cardType' => $cardType->id]) }}" class="block mb-4">
+                            <h5 class="card-title text-2xl font-semibold text-purple-700 hover:text-purple-500">{{ $cardType->title }}</h5>
                         </a>
-                        <p class="card-text mb-2"><strong>Message:</strong> {!!$cardType->msg!!}</p>
+                        <p class="card-text mb-2 text-gray-800"><strong>Message:</strong> {!! $cardType->msg !!}</p>
 
                         @if ($cardType->image)
-                            <a href="{{ route('cardType.show', ['cardType' => $cardType->id]) }}" class="block mb-4">
-                                <img src="{{ asset('storage/' . $cardType->image) }}" class="img-fluid w-full h-48 object-cover rounded-lg"
+                            <a href="{{ route('cardType.show', ['cardType' => $cardType->id]) }}" class="block mb-4 mt-4">
+                                <img src="{{ asset('storage/' . $cardType->image) }}" class="img-fluid w-full h-48 object-cover rounded-lg transition-transform transform hover:scale-110"
                                      alt="Card Type Image">
                             </a>
                         @endif
 
-                        <p class="card-text"><strong>CardCategory:</strong> {{ $cardType->card->card_title }}</p>
+                        <p class="card-text text-gray-800"><strong>Card ID:</strong> {{ $cardType->card->card_title }}</p>
+
+                        <a href="{{ route('cardType.show', ['cardType' => $cardType->id]) }}" class="mt-4 inline-block bg-purple-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-purple-700 transition-colors">View Details</a>
                     </div>
                 </div>
             @endforeach
@@ -109,6 +111,9 @@
     </div>
 
 </main>
+
+
+
 
 
 
