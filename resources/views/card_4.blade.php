@@ -184,8 +184,8 @@
         <p>{!! $data->other !!}</p>
     </div>
     <div class="footer">
-        <p>RSVP by July 5th</p>
-        <p>Contact: (123) 456-7890</p>
+{{--        <p>RSVP by July 5th</p>--}}
+        <p>{!! $data->address !!}</p>
     </div>
 </div>
 
