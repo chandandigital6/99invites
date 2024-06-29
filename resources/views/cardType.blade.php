@@ -7,7 +7,7 @@
     <title>99invites</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('assets/styles.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/styles.css') }}">
 </head>s
 
 <body>
@@ -21,7 +21,7 @@
     <div class="container mx-auto flex items-center justify-between">
         <!-- Logo -->
         <div class="flex items-center">
-            <a href="{{route('home')}}">
+            <a href="{{ route('home') }}">
                 <img src="https://99invites.com/wp-content/uploads/2019/09/Group-2-1-1024x219.png" alt="99invites"
                      class="h-12">
             </a>
@@ -78,125 +78,40 @@
 
 <!--Header End-->
 
-<main class="fade-in">
-    <!--Online Wedding Invitations Start-->
+<main class="fade-in p-6 bg-gray-100 mt-14">
 
+    <div class="main-content max-w-6xl mx-auto">
 
-{{--    <section class="bg-purple-800 text-white p-8 pt-16 mt-12">--}}
-{{--        @foreach($banners as $banner)--}}
+        <h1 class="text-3xl font-bold mb-6 text-center">Multiple Card Types</h1>
 
-
-{{--            <div class="container mx-auto flex flex-col md:flex-row items-center">--}}
-{{--                <!-- Left Column: Text -->--}}
-{{--                <div class="w-full md:w-1/2 text-center md:text-left mb-8 md:mb-0 fade-in-bottom">--}}
-{{--                    <h1 class="text-6xl font-bold mb-4 ">{{$banner->title}}</h1>--}}
-{{--                    <p class="text-2xl mb-6">--}}
-{{--                        {{$banner->sub_title}}--}}
-{{--                    </p>--}}
-{{--                    <a href="#"--}}
-{{--                       class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded flex items-center justify-center w-48 mx-auto md:mx-0">--}}
-{{--                        <i class="fab fa-whatsapp mr-2"></i>Create Invite--}}
-{{--                    </a>--}}
-{{--                </div>--}}
-
-{{--                <!-- Right Column: Video -->--}}
-{{--                <div class="w-full md:w-1/2 md:ml-8 lg:ml-32">--}}
-{{--                    <div class="rounded-lg border border-white overflow-hidden">--}}
-{{--                        <video class="w-full h-96 object-cover rounded-lg"--}}
-{{--                               src="{{asset('storage/'.$banner->image)}}" autoplay--}}
-{{--                               loop muted playsinline></video>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
-{{--            </div>--}}
-{{--        @endforeach--}}
-{{--    </section>--}}
-
-
-
-    <!--Online Wedding Invitations End-->
-
-
-    <div class="main-content">
-
-
-        <h1>Multiple Card Types</h1>
-
-        @foreach ($cardTypes as $cardType)
-            <div class="card mb-3">
-                <div class="card-body">
-                    <a href="{{ route('cardType.show', ['cardType' => $cardType->id]) }}">
-                        <h5 class="card-title">{{ $cardType->title }}</h5>
-                    </a>
-                    <p class="card-text"><strong>Message:</strong> {{ $cardType->msg }}</p>
-
-                    @if ($cardType->image)
-                        <a href="{{ route('cardType.show', ['cardType' => $cardType->id]) }}">
-                            <img src="{{ asset('storage/' . $cardType->image) }}" class="img-fluid mb-3" alt="Card Type Image" style="max-width: 200px;">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            @foreach ($cardTypes as $cardType)
+                <div class="card bg-white shadow-lg rounded-lg overflow-hidden flex flex-col items-center">
+                    <div class="card-body p-6 text-center">
+                        <a href="{{ route('cardType.show', ['cardType' => $cardType->id]) }}" class="block">
+                            <h5 class="card-title text-2xl font-semibold mb-4 text-blue-600 hover:underline">{{ $cardType->title }}</h5>
                         </a>
-                    @endif
+                        <p class="card-text mb-2"><strong>Message:</strong> {!!$cardType->msg!!}</p>
 
-                    {{-- <p class="card-text"><strong>Page:</strong> {{ $cardType->page }}</p> --}}
-                    <p class="card-text"><strong>Card ID:</strong> {{ $cardType->card_id }}</p>
+                        @if ($cardType->image)
+                            <a href="{{ route('cardType.show', ['cardType' => $cardType->id]) }}" class="block mb-4">
+                                <img src="{{ asset('storage/' . $cardType->image) }}" class="img-fluid w-full h-48 object-cover rounded-lg"
+                                     alt="Card Type Image">
+                            </a>
+                        @endif
+
+                        <p class="card-text"><strong>CardCategory:</strong> {{ $cardType->card->card_title }}</p>
+                    </div>
                 </div>
-            </div>
-        @endforeach
+            @endforeach
+        </div>
 
-
-        <!--Select invitation theme Start-->
-
-
-
-
-    <!--Pre-wedding & Engagemen Start-->
-
-
-
-
-    <!--Pre-wedding & Engagemen End-->
-
-
-    <!--Countdown for Your Special Day Start-->
-
-
-
-
-    <!--Countdown for Your Special Day End-->
-
-    <!--Background Music Start-->
-
-
-
-    <!--Background Music End-->
-
-
-    <!--Testimonial Start-->
-
-
-
-
-    <!--Testimonial End-->
-
-
-    <!--Pricing Start-->
-
-
-
-
-
-    <!--Pricing End-->
-
-    <!--Create your unique wedding invitation Start-->
-
-
-
-    <!--Create your unique wedding invitation End-->
-
-    <!--Create your unique wedding invitation Start-->
-
-
+    </div>
 
 </main>
+
+
+
 
 <!--Footer Start-->
 
@@ -204,8 +119,8 @@
     <div class="max-w-4xl mx-auto">
         <div class="flex items-center mb-4">
             <div class="bg-red-500 rounded-full p-2 mr-2">
-                <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                     stroke="currentColor">
+                <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                     viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                           d="M15 12h3m-4 4h4m-6 0a9 9 0 11-4-7.5m1 6.5h.01" />
                 </svg>
@@ -257,12 +172,10 @@
 
 
 
-<script>
-
-</script>
+<script></script>
 
 
-<script src="{{asset('assets/scripts.js')}}"></script>
+<script src="{{ asset('assets/scripts.js') }}"></script>
 
 </body>
 
