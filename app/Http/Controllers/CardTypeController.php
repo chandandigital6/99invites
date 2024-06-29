@@ -26,19 +26,27 @@ class CardTypeController extends Controller
         return view('cardType.create',compact('cards'));
     }
 
-    public function store(CardTypeRequest $request){
-//        dd($request);
-        $cardType=CardType::create($request->all());
-        $image = $request->file('image')->store('public/cardType');
+    public function store(CardTypeRequest $request)
+    {
+        // Create the card type with the request data
+        $cardType = CardType::create($request->all());
 
-        $cardType->image = str_replace('public/', '', $image);
-        $cardType->save();
-        return redirect()->route('cardType.index')->with('success', 'CardType  created successfully.');
+        // Check if an image file is present in the request
+        if ($request->hasFile('image')) {
+            // Store the image and update the card type's image attribute
+            $image = $request->file('image')->store('public/cardType');
+            $cardType->image = str_replace('public/', '', $image);
+            $cardType->save();
+        }
+
+        // Redirect with a success message
+        return redirect()->route('cardType.index')->with('success', 'CardType created successfully.');
     }
 
-    public function edit(CardType $cardType){
 
-        return view('cardType.edit',compact('cardType'));
+    public function edit(CardType $cardType){
+        $cards=Card::all();
+        return view('cardType.edit',compact('cardType','cards'));
     }
 
     public function update(CardType $cardType , CardTypeRequest $request){

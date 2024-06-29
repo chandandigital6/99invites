@@ -40,6 +40,19 @@
             </div>
 
             <div class="form-group">
+                <label for="page">Page</label>
+                <select class="form-control" id="page" name="page">
+                    <option value="">Select Page</option>
+                    <option value="card_1" {{ old('page') == 'card_1' ? 'selected' : '' }}>Card 1</option>
+                    <option value="card_2" {{ old('page') == 'card_2' ? 'selected' : '' }}>Card 2</option>
+                    <option value="card_3" {{ old('page') == 'card_3' ? 'selected' : '' }}>Card 3</option>
+                </select>
+                @if ($errors->has('page'))
+                    <span class="text-danger">{{ $errors->first('page') }}</span>
+                @endif
+            </div>
+
+            <div class="form-group">
                 <label for="card_id">Card</label>
                 <select name="card_id" id="card_id" class="form-control">
                     <option value="">Select Card</option>

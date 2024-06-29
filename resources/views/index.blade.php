@@ -21,7 +21,7 @@
         <div class="container mx-auto flex items-center justify-between">
             <!-- Logo -->
             <div class="flex items-center">
-                <a href="https://99invites.com/">
+                <a href="{{route('home')}}">
                     <img src="https://99invites.com/wp-content/uploads/2019/09/Group-2-1-1024x219.png" alt="99invites"
                         class="h-12">
                 </a>
@@ -30,7 +30,7 @@
             <!-- Navigation Menu -->
             <nav class="hidden md:flex md:items-center md:w-auto w-full justify-between">
                 <ul class="md:flex md:flex-row md:gap-6 items-center mr-8">
-                    <li><a href="#" class="nav-link">Home</a></li>
+                    <li><a href="{{route('home')}}" class="nav-link">Home</a></li>
                     <li><a href="#designs" class="nav-link">Invitations Designs</a></li>
                     <li><a href="#features" class="nav-link">Features</a></li>
                     <li><a href="#pricing1" class="nav-link">Pricing</a></li>
@@ -61,7 +61,7 @@
     <div class="mobile-menu md:hidden fixed top-20 left-0 w-full bg-white text-black z-50 hidden">
         <div class="container mx-auto flex flex-col justify-center items-center h-full">
             <ul class="flex flex-col items-center gap-4">
-                <li><a href="#" class="hover:text-purple-300">Home</a></li>
+                <li><a href="{{route('home')}}" class="hover:text-purple-300">Home</a></li>
                 <li><a href="#designs" class="hover:text-purple-300">Invitations Designs</a></li>
                 <li><a href="#features" class="hover:text-purple-300">Features</a></li>
                 <li><a href="#pricing1" class="hover:text-purple-300">Pricing</a></li>
@@ -132,7 +132,7 @@
                     @foreach($cards as $card)
 
 
-                    <a href="{{route('card_1')}}">
+                    <a href="{{route('card.show',$card->id)}}">
                         <div
                             class="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 hover-fade-in">
                             <img src="{{asset('storage/'.$card->image)}}" alt="Vintage" class="w-full">

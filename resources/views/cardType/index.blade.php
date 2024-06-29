@@ -49,7 +49,9 @@
                                     <th>Title</th>
                                     <th>Heading</th>
                                     <th>Image</th>
-                                    <th>cards</th>
+                                    <th>cardsCategory</th>
+                                    <th>pageType</th>
+
                                     <th>Action</th>
                                 </tr>
                                 </thead>
@@ -61,6 +63,7 @@
                                         <td>{!! $cardType->msg !!}</td>
                                         <td><img src="{{ asset('storage/'.$cardType->image) }}" alt="{{ $cardType->title }}" style="max-width: 100px;"></td>
                                         <td>{{$cardType->card->card_title}}</td>
+                                        <td>{{$cardType->page}}</td>
                                         <td>
                                             <a href="{{ route('cardType.edit', $cardType->id) }}" class="btn btn-primary">Edit</a>
                                             <a href="{{ route('cardType.delete', $cardType->id) }}" class="btn btn-danger">Delete</a>

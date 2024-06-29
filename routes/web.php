@@ -28,7 +28,9 @@ use App\Http\Controllers\HomeController;
 |
 */
 Route::get('/',[HomeController::class,'index'])->name('home');
-//Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/card/show/{card}', [HomeController::class, 'showCardType'])->name('card.show');
+Route::get('/cardType/{cardType}',[HomeController::class,'show'])->name('cardType.show');
+
 Route::get('/card_1', [HomeController::class, 'card_1'])->name('card_1');
 Route::get('/card_2', [HomeController::class, 'card_2'])->name('card_2');
 Route::get('/card_3', [HomeController::class, 'card_3'])->name('card_3');

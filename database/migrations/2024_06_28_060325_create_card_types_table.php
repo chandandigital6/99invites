@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title')->nullable();
             $table->text('msg')->nullable();
             $table->string('image')->nullable();
+            $table->enum('page',['card_1','card_2','card_3'])->nullable();
             $table->foreignId('card_id')->nullable()->constrained('cards')->onDelete('cascade');
             $table->timestamps();
         });

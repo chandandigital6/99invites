@@ -47,7 +47,7 @@
                      <a href="{{route('card.index')}}" class="nav-link">
                         <i class="nav-icon 	fa fa-address-book"></i>
                         <p>
-                            Cards
+                            CardsCategory
                         </p>
                     </a>
                 </li>
