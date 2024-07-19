@@ -19,4 +19,9 @@ class CardType extends Model
     {
         return $this->hasMany(BirthdayCard::class, 'cardType_id'); // Ensure this matches the column name in the birthday_cards table
     }
+
+    public function sadiCard()
+    {
+        return $this->hasMany(sadiCard::class, 'cardType_id'); // Ensure this matches the column name in the birthday_cards table
+    }
 }

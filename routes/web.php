@@ -11,6 +11,8 @@ use App\Http\Controllers\CardController;
 use App\Http\Controllers\CardTypeController;
 use App\Http\Controllers\CounterController;
 use App\Http\Controllers\PlanCOntroller;
+use App\Http\Controllers\SadiCardController;
+use App\Http\Controllers\SadiCardDetailsController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TestimonialController;
@@ -37,16 +39,18 @@ Route::get('/card_2', [HomeController::class, 'card_2'])->name('card_2');
 Route::get('/card_3', [HomeController::class, 'card_3'])->name('card_3');
 Route::get('/card_4', [HomeController::class, 'card_4'])->name('card_4');
 Route::get('/card-types/{cardType}/qr', [BirthDayController::class, 'showQr'])->name('cardType.showQr');
-//Route::get('/',[HomeController::class,'index'])->name('home');
-//Route::get('/about',[HomeController::class,'about'])->name('about');
-//Route::get('/services',[HomeController::class,'services'])->name('services');
-//Route::get('/contact',[HomeController::class,'contact'])->name('contact');
-//Route::get('/team',[HomeController::class,'team'])->name('team');
-//Route::get('/testimonial',[HomeController::class,'testimonial'])->name('testimonial');
-//Route::get('/price',[HomeController::class,'price'])->name('price');
-//Route::get('/appointment',[HomeController::class,'appointment'])->name('appointment');
-//Route::get('/blog',[HomeController::class,'blog'])->name('blog');
-//Route::get('/blog/{blog}',[HomeController::class,'blogDetails'])->name('blog-details');
+
+Route::prefix('card')->group(function (){
+
+    Route::get('birthday_card_1',[HomeController::class,'birthday_card_1'])->name('birthday_card_1');Route::get('birthday_card_2',[HomeController::class,'birthday_card_2'])->name('birthday_card_2');
+    Route::get('birthday_card_3',[HomeController::class,'birthday_card_3'])->name('birthday_card_3');
+    Route::get('birthday_card_4',[HomeController::class,'birthday_card_4'])->name('birthday_card_4');
+    Route::get('birthday_card_5',[HomeController::class,'birthday_card_5'])->name('birthday_card_5');
+    Route::get('birthday_card_6',[HomeController::class,'birthday_card_6'])->name('birthday_card_6');
+    Route::get('birthday_card_7',[HomeController::class,'birthday_card_7'])->name('birthday_card_7');
+
+});
+
 
 Route::get('login-form',[AuthController::class,'index'])->name('login-form');
 Route::get('registration',[AuthController::class,'registration'])->name('registration');
@@ -202,6 +206,24 @@ Route::group(['middleware' => ['auth']],function (){
     Route::post('birthDayCard/update/{birthDayCard}',[BirthDayController::class,'update'])->name('birthDayCard.update');
     Route::get('birthDayCard/delete/{birthDayCard}',[BirthDayController::class,'delete'])->name('birthDayCard.delete');
     Route::get('birthDayCard/duplicate/{birthDayCard}',[BirthDayController::class,'duplicate'])->name('birthDayCard.duplicate');
+
+    //Sadi Card
+
+    Route::get('sadiCard/index',[SadiCardController::class,'index'])->name('sadiCard.index');
+    Route::get('sadiCard/create',[SadiCardController::class,'create'])->name('sadiCard.create');
+    Route::post('sadiCard/store',[SadiCardController::class,'store'])->name('sadiCard.store');
+    Route::get('sadiCard/edit/{sadiCard}',[SadiCardController::class,'edit'])->name('sadiCard.edit');
+    Route::post('sadiCard/update/{sadiCard}',[SadiCardController::class,'update'])->name('sadiCard.update');
+    Route::get('sadiCard/delete/{sadiCard}',[SadiCardController::class,'delete'])->name('sadiCard.delete');
+    Route::get('sadiCard/duplicate/{sadiCard}',[SadiCardController::class,'duplicate'])->name('sadiCard.duplicate');
+
+    Route::get('sadiCardDetails/index',[SadiCardDetailsController::class,'index'])->name('sadiCardDetails.index');
+    Route::get('sadiCardDetails/create',[SadiCardDetailsController::class,'create'])->name('sadiCardDetails.create');
+    Route::post('sadiCardDetails/store',[SadiCardDetailsController::class,'store'])->name('sadiCardDetails.store');
+    Route::get('sadiCardDetails/edit/{sadiCardDetails}',[SadiCardDetailsController::class,'edit'])->name('sadiCardDetails.edit');
+    Route::post('sadiCardDetails/update/{sadiCardDetails}',[SadiCardDetailsController::class,'update'])->name('sadiCardDetails.update');
+    Route::get('sadiCardDetails/delete/{sadiCardDetails}',[SadiCardDetailsController::class,'delete'])->name('sadiCardDetails.delete');
+    Route::get('sadiCardDetails/duplicate/{sadiCardDetails}',[SadiCardDetailsController::class,'duplicate'])->name('sadiCardDetails.duplicate');
 });
 
 

@@ -79,4 +79,46 @@ class HomeController extends Controller
 
     }
 
+    public function birthday_card_1()
+    {
+        return view('card.birthday_card_1');
+
+    }
+
+    public function birthday_card_2()
+    {
+        return view('card.birthday_card_2');
+
+    }
+
+
+    public function birthday_card_3()
+    {
+        return view('card.birthday_card_3');
+
+    }
+
+    public function birthday_card_4()
+    {
+        return view('card.birthday_card_4');
+
+    }
+
+    public function birthday_card_5()
+    {
+        return view('card.birthday_card_5');
+
+    }
+
+    public function birthday_card_6()
+    {
+        return view('card.birthday_card_6');
+
+    }
+
+    public function birthday_card_7()
+    {
+        return view('card.birthday_card_7');
+
+    }
 }
