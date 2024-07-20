@@ -42,53 +42,68 @@
                         </form>
 
                         <div class="table-responsive">
-                            <table class="table table-striped">
+                            <table class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Image</th>
-                                    <th>Mantra</th>
-                                    <th>Mother's Name</th>
-                                    <th>Father's Name</th>
-                                    <th>In Request</th>
-                                    <th>Date and Time</th>
-                                    <th>Venue Address</th>
-                                    <th>Marriage to Follow</th>
+                                    <th>Haldi Image</th>
+                                    <th>Haldi Title</th>
+                                    <th>Haldi Message</th>
+                                    <th>Haldi Date & Time</th>
+                                    <th>Haldi Venue</th>
+                                    <th>Mehndi Image</th>
+                                    <th>Mehndi Title</th>
+                                    <th>Mehndi Message</th>
+                                    <th>Mehndi Date & Time</th>
+                                    <th>Mehndi Venue</th>
                                     <th>Card Type</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-{{--                                @forelse ($sadiCardData as $sadiCard)--}}
-{{--                                    <tr>--}}
-{{--                                        <td>{{ $loop->iteration }}</td>--}}
-{{--                                        <td>--}}
-{{--                                            @if($sadiCard->image)--}}
-{{--                                                <img src="{{ asset('storage/'.$sadiCard->image) }}" alt="{{ $sadiCard->title }}" style="max-width: 100px;">--}}
-{{--                                            @else--}}
-{{--                                                N/A--}}
-{{--                                            @endif--}}
-{{--                                        </td>--}}
-{{--                                        <td>{{ $sadiCard->mantra }}</td>--}}
-{{--                                        <td>{{ $sadiCard->m_name }}</td>--}}
-{{--                                        <td>{{ $sadiCard->f_name }}</td>--}}
-{{--                                        <td>{{ $sadiCard->in_request }}</td>--}}
-{{--                                        <td>{{ $sadiCard->data_and_time }}</td>--}}
-{{--                                        <td>{{ $sadiCard->venue_address }}</td>--}}
-{{--                                        <td>{{ $sadiCard->marriage_to_follow }}</td>--}}
-{{--                                        <td>{{ $sadiCard->cardType->title ?? 'N/A' }}</td>--}}
-{{--                                        <td>--}}
-{{--                                            <a href="{{ route('sadiCard.edit', $sadiCard->id) }}" class="btn btn-primary">Edit</a>--}}
-{{--                                            <a href="{{ route('sadiCard.delete', $sadiCard->id) }}" class="btn btn-danger">Delete</a>--}}
-{{--                                            <a href="{{ route('sadiCard.duplicate', $sadiCard->id) }}" class="btn btn-warning">Duplicate</a>--}}
-{{--                                        </td>--}}
-{{--                                    </tr>--}}
-{{--                                @empty--}}
-{{--                                    <tr>--}}
-{{--                                        <td colspan="11">No Sadi Cards found</td>--}}
-{{--                                    </tr>--}}
-{{--                                @endforelse--}}
-{{--                                </tbody>--}}
+                                @forelse ($sadiCardDetailsData as $sadiCardDetails)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>
+                                            @if($sadiCardDetails->haldi_image)
+                                                <img src="{{ asset('storage/'.$sadiCardDetails->haldi_image) }}" alt="Haldi Image" style="max-width: 100px;">
+                                            @endif
+                                        </td>
+                                        <td>{{ $sadiCardDetails->haldi_title }}</td>
+                                        <td>{{ $sadiCardDetails->haldi_msg }}</td>
+                                        <td>{{ $sadiCardDetails->haldi_date_time }}</td>
+                                        <td>{{ $sadiCardDetails->haldi_venue }}</td>
+                                        <td>
+                                            @if($sadiCardDetails->mehndi_image)
+                                                <img src="{{ asset('storage/'.$sadiCardDetails->mehndi_image) }}" alt="Mehndi Image" style="max-width: 100px;">
+                                            @endif
+                                        </td>
+                                        <td>{{ $sadiCardDetails->mehndi_title }}</td>
+                                        <td>{{ $sadiCardDetails->mehndi_msg }}</td>
+                                        <td>{{ $sadiCardDetails->mehndi_date_time }}</td>
+                                        <td>{{ $sadiCardDetails->mehndi_venue }}</td>
+
+                                        <td>
+                                            @if($sadiCardDetails->sadiCard)
+                                                {{ $sadiCardDetails->sadiCard->m_name }} & {{ $sadiCardDetails->sadiCard->f_name }}
+                                            @else
+                                                N/A
+                                            @endif
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('sadiCardDetails.edit', $sadiCardDetails->id) }}" class="btn btn-primary">Edit</a>
+                                            <a href="{{ route('sadiCardDetails.delete', $sadiCardDetails->id) }}" class="btn btn-danger">Delete</a>
+                                            <a href="{{ route('sadiCardDetails.duplicate', $sadiCardDetails->id) }}" class="btn btn-warning">Duplicate</a>
+                                            <a href="{{ route('sadiCardDetails.show', $sadiCardDetails->id) }}" class="btn btn-info">show</a>
+
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="11">No Sadi Cards found</td>
+                                    </tr>
+                                @endforelse
+                                </tbody>
                             </table>
                         </div>
                     </div>

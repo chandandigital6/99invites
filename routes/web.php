@@ -224,6 +224,8 @@ Route::group(['middleware' => ['auth']],function (){
     Route::post('sadiCardDetails/update/{sadiCardDetails}',[SadiCardDetailsController::class,'update'])->name('sadiCardDetails.update');
     Route::get('sadiCardDetails/delete/{sadiCardDetails}',[SadiCardDetailsController::class,'delete'])->name('sadiCardDetails.delete');
     Route::get('sadiCardDetails/duplicate/{sadiCardDetails}',[SadiCardDetailsController::class,'duplicate'])->name('sadiCardDetails.duplicate');
+    Route::get('sadiCardDetails/show/{sadiCardDetails}',[SadiCardDetailsController::class,'show'])->name('sadiCardDetails.show');
+
 });
 
 

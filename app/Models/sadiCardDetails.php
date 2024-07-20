@@ -11,6 +11,6 @@ class sadiCardDetails extends Model
     protected $guarded=['id'];
 
     public function sadiCard(){
-        return $this->belongsTo(sadiCard::class);
+        return $this->belongsTo(sadiCard::class,'sadiCard_id');
     }
 }
