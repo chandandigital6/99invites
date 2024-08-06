@@ -103,10 +103,14 @@ class SadiCardDetailsController extends Controller
         return redirect()->route('sadiCardDetails.index')->with('success', 'Sadi Card Details successfully updated');
     }
 
-    public function show(sadiCardDetails $sadiCardDetails){
-
-        return view('sadiCardDetails.show',compact('sadiCardDetails'));
+    public function show($id) {
+        // Find the specific sadiCardDetails by its ID and load the sadiCard relationship
+        $sadiCardDetails = sadiCardDetails::with('sadiCard')->findOrFail($id);
+//        dd($sadiCardDetails);
+        // Return the view with the sadiCardDetails instance
+        return view('sadiCardDetails.show', compact('sadiCardDetails'));
     }
+
 
     public function delete(sadiCardDetails $sadiCardDetails){
         $sadiCardDetails->delete();

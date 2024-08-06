@@ -38,6 +38,7 @@ Route::get('/card_1', [HomeController::class, 'card_1'])->name('card_1');
 Route::get('/card_2', [HomeController::class, 'card_2'])->name('card_2');
 Route::get('/card_3', [HomeController::class, 'card_3'])->name('card_3');
 Route::get('/card_4', [HomeController::class, 'card_4'])->name('card_4');
+Route::get('/card_5', [HomeController::class, 'card_5'])->name('card_5');
 Route::get('/card-types/{cardType}/qr', [BirthDayController::class, 'showQr'])->name('cardType.showQr');
 
 Route::prefix('card')->group(function (){

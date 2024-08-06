@@ -804,7 +804,7 @@
   <!-- Warm Welcome End -->
 
   <!-- Footer Start -->
-  <footer class="bg-cover bg-center h-64" style="background-image: url('{{ asset('assets/card2img/leaf.jpg') }}');"> 
+  <footer class="bg-cover bg-center h-64" style="background-image: url('{{ asset('assets/card2img/leaf.jpg') }}');">
     <div class="bg-black bg-opacity-60 hover:bg-opacity-80 transition duration-300 h-full flex items-center">
       <div class="container mx-auto text-center text-white">
         <a href="#"

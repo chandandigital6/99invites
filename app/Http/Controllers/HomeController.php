@@ -37,24 +37,56 @@ class HomeController extends Controller
 //        return view('cardType', compact('cardTypes'));
     }
 
-
-
-
     public function show($cardType)
     {
-        $card = CardType::findOrFail($cardType); // Use findOrFail to handle non-existent IDs
-        $birthDay = $card->birthdayCards; // Get the related BirthdayCard instances
+        // Find the specific CardType by its ID and eager load related data
+        $card = CardType::with(['birthdayCards', 'sadiCard.sadiCardDetails'])->findOrFail($cardType);
 
-        if ($card->page == 'card_1') {
-            return view('card_4', compact('birthDay', 'card'));
-        } elseif ($card->page == 'card_2') {
-            return view('card_2', compact('birthDay', 'card'));
-        } elseif ($card->page == 'card_3') {
-            return view('card_3', compact('birthDay', 'card'));
-        } else {
-            return response("No pages", 404);
+        // Get the related BirthdayCard instances
+        $birthDay = $card->birthdayCards;
+
+        // Get the related sadiCard instances
+        $sadiCard = $card->sadiCard;
+//         dd($sadiCard);
+        // Prepare the data to pass to the view
+        $viewData = compact('birthDay', 'card', 'sadiCard');
+
+        // Determine which view to render based on the card's page attribute
+        switch ($card->page) {
+            case 'card_1':
+                return view('card_4', $viewData);
+            case 'card_2':
+                return view('card_2', $viewData);
+            case 'card_3':
+                return view('card_3', $viewData);
+            case 'card_4':
+                return view('card_4', $viewData);
+            case 'card_5':
+                return view('card_5', $viewData);
+            default:
+                return response("No pages", 404);
         }
     }
+
+
+
+//    public function show($cardType)
+//    {
+//        $card = CardType::findOrFail($cardType); // Use findOrFail to handle non-existent IDs
+//        $birthDay = $card->birthdayCards; // Get the related BirthdayCard instances
+//        $sadiCard=$card->sadiCard;
+//
+//
+//        if ($card->page == 'card_1') {
+//            return view('card_4', compact('birthDay', 'card'));
+//        } elseif ($card->page == 'card_2') {
+//            return view('card_2', compact('birthDay', 'card'));
+//        } elseif ($card->page == 'card_3') {
+//            return view('card_3', compact('birthDay', 'card'));
+//        } else {
+//            return response("No pages", 404);
+//        }
+//    }
 
 
 
@@ -76,6 +108,12 @@ class HomeController extends Controller
     public function card_4()
     {
         return view('card_4');
+
+    }
+
+    public function card_5()
+    {
+        return view('card_5');
 
     }
 

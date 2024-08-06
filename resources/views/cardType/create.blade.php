@@ -46,6 +46,9 @@
                     <option value="card_1" {{ old('page') == 'card_1' ? 'selected' : '' }}>Card 1</option>
                     <option value="card_2" {{ old('page') == 'card_2' ? 'selected' : '' }}>Card 2</option>
                     <option value="card_3" {{ old('page') == 'card_3' ? 'selected' : '' }}>Card 3</option>
+                    <option value="card_4" {{ old('page') == 'card_4' ? 'selected' : '' }}>Card 4</option>
+                    <option value="card_5" {{ old('page') == 'card_5' ? 'selected' : '' }}>Card 5</option>
+
                 </select>
                 @if ($errors->has('page'))
                     <span class="text-danger">{{ $errors->first('page') }}</span>
