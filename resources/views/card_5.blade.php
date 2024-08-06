@@ -175,21 +175,28 @@
     <h1>{{$sadi->m_name}}</h1>
     <h2>and</h2>
     <h1>{{$sadi->f_name}}</h1>
-    <p>Request the pleasure of your company at the ceremony of their wedding</p>
+    <p>{!! $sadi->in_request !!}</p>
+    @php
+
+$sadi->day_of_week = \Illuminate\Support\Carbon::parse($sadi->data_and_time)->format('l'); // 'l' formats the day as a full name (e.g., 'Saturday')
+$sadi->formatted_date_time = \Illuminate\Support\Carbon::parse($sadi->data_and_time)->format('l, F j, Y \a\t h:i A');
+
+    @endphp
     <div class="details">
         <div>
-            <p><strong>Saturday</strong></p>
-            <p>August 17</p>
+            <p><strong>{{ $sadi->day_of_week }}</strong></p>
+            <p>{{ $sadi->formatted_date_time }}</p>
         </div>
         <div>
             <p><strong>LICERIA HOTEL</strong></p>
-            <p>123 Anywhere St., Any City</p>
+            <p>{!! $sadi->venue_address !!}</p>
         </div>
         <div>
             <p><strong>Marriage</strong></p>
-            <p>at 7:00 pm</p>
+            <p>at {{ $sadi->formatted_date_time }}</p>
         </div>
     </div>
+
     <p>Thank you all for celebrating with us</p>
     <p><em>Marriage to follow</em></p>
 </div>
